@@ -16,6 +16,7 @@ body {
 
 .header h1 {
     font-size: 2.5rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .quiz-container {
@@ -37,6 +38,7 @@ body {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     color: black;
     overflow: hidden;
+    font-family: 'Sora, sans-serif';
 }
 
 .quiz-card:hover {
