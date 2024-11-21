@@ -43,6 +43,59 @@
             color: white;
         }
 
+        /* Networking Cafe Section Styling */
+        .person-card {
+            width: 100%;
+            max-width: 250px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Hover effect for the person cards */
+        .person-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Image Styling inside each card */
+        .person-card img {
+            object-fit: cover;
+        }
+
+        /* Connect Button Styling */
+        .connect-btn {
+            background: linear-gradient(to right, #d0c0d3, #e49eda);
+            color: white;
+            text-decoration: none;
+            padding: 12px 20px;
+            font-weight: bold;
+            border-radius: 30px;
+            display: inline-block;
+            transition: background 0.3s ease;
+        }
+
+        /* Hover Effect on Connect Button */
+        .connect-btn:hover {
+            background: linear-gradient(to right, #d0c0d3, #e49eda);
+            opacity: 0.8;
+        }
+
+        /* Responsive adjustments */
+        @media (min-width: 768px) {
+            .person-card {
+                width: calc(33.333% - 20px);
+                /* Three cards per row */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .person-card {
+                width: 100%;
+                /* Full width on smaller screens */
+            }
+        }
+
+
+
         /* Laptop Media Query */
         @media (min-width: 1024px) {
             .container {
@@ -82,13 +135,12 @@
             <button class="flex items-center px-4 py-2 mr-2" onclick="switchTab('notes')">
                 <i data-lucide="book" class="mr-2"></i>
                 <span>Shared Notes</span>
-
             </button>
             <button class="flex items-center px-4 py-2" onclick="switchTab('forums')">
                 <i data-lucide="message-circle" class="mr-2"></i>
                 <span>Doubt Solving</span>
             </button>
-            <button class="flex items-center px-4 py-2" onclick="switchTab('forums')">
+            <button class="flex items-center px-4 py-2" onclick="switchTab('networking')">
                 <i data-lucide="message-circle" class="mr-2"></i>
                 <span>Networking Cafe</span>
             </button>
@@ -161,21 +213,79 @@
                 </div>
             </div>
         </div>
+
+        <!-- Shared Notes Section -->
+        <div id="notes" class="tab-content hidden">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="font-bold">Shared Notes</h2>
+                <button class="flex items-center gradient-bg px-4 py-2 rounded hover:opacity-90">
+                    <i data-lucide="upload" class="mr-2"></i> Upload Notes
+                </button>
+            </div>
+            <a href="https://drive.google.com/drive/folders/1fh2nGBz99MiupRVZhwdloEFJDLM2dDHF" target="_blank">
+                <h3 class="font-bold text-xl mb-2">Computer Science</h3>
+                <ul class="list-disc list-inside text-gray-600">
+                    <li>Data Structures and Algorithms</li>
+                    <li>Operating Systems Notes</li>
+                    <li>Database Management Systems</li>
+                </ul>
+            </a>
+        </div>
+
+        <!-- Doubt Solving Section -->
+        <div id="forums" class="tab-content hidden">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="font-bold">Doubt Solving</h2>
+                <button class="flex items-center gradient-bg px-4 py-2 rounded hover:opacity-90">
+                    <i data-lucide="edit-3" class="mr-2"></i> Ask Question
+                </button>
+            </div>
+        </div>
+
+        <!-- Networking Cafe Section -->
+        <div id="networking" class="tab-content hidden">
+            <h2 class="font-bold mb-4">Networking Cafe</h2>
+            <div class="flex flex-wrap">
+                <div class="person-card mb-6 mr-6">
+                    <img src="avatar/image.png" alt="Person 1" class="w-full h-48 rounded-lg">
+                    <div class="mt-4">
+                        <h3 class="font-bold">Karan Singh</h3>
+                        <p class="text-gray-600">Software Developer at XYZ Corp.</p>
+                        <a href="#" class="connect-btn mt-3 block text-center">Connect</a>
+                    </div>
+                </div>
+
+                <div class="person-card mb-6 mr-6">
+                    <img src="avatar/image.png" alt="Person 2" class="w-full h-48 rounded-lg">
+                    <div class="mt-4">
+                        <h3 class="font-bold">Sneha Mehta</h3>
+                        <p class="text-gray-600">Product Manager at ABC Ltd.</p>
+                        <a href="#" class="connect-btn mt-3 block text-center">Connect</a>
+                    </div>
+                </div>
+
+                <!-- Add more profiles as needed -->
+            </div>
+        </div>
     </div>
 
     <script>
-        const tabs = document.querySelectorAll("#tabs button");
-        const tabContents = document.querySelectorAll(".tab-content");
+        // Tab Switching Logic
+        function switchTab(tab) {
+            const tabs = document.querySelectorAll('.tab-content');
+            const buttons = document.querySelectorAll('#tabs button');
 
-        function switchTab(tabId) {
-            tabs.forEach(tab => tab.classList.remove("active-tab"));
-            tabContents.forEach(content => content.classList.add("hidden"));
+            tabs.forEach((tabContent) => {
+                tabContent.classList.add('hidden');
+            });
+            buttons.forEach((button) => {
+                button.classList.remove('active-tab');
+            });
 
-            document.querySelector(`#tabs button[onclick="switchTab('${tabId}')"]`).classList.add("active-tab");
-            document.getElementById(tabId).classList.remove("hidden");
+            document.getElementById(tab).classList.remove('hidden');
+            const activeButton = [...buttons].find((btn) => btn.innerText.toLowerCase() === tab);
+            activeButton.classList.add('active-tab');
         }
-
-        lucide.createIcons(); // Initialize Lucide icons
     </script>
 
 </body>
