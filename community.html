@@ -241,7 +241,7 @@
                 </button>
             </div>
             <div class="container mx-auto p-6 bg-white shadow-md rounded-lg">
-                <h2 class="text-xl font-semibold mb-4">Basic Q&A Application</h2>
+                <h2 class="text-xl font-semibold mb-4"> Q&A Application</h2>
                 <!-- Input Section -->
                 <div class="question-box mb-4">
                     <label for="question" class="block text-gray-700 font-medium mb-2">Ask your question:</label>
@@ -309,32 +309,34 @@
             const activeButton = [...buttons].find((btn) => btn.innerText.toLowerCase() === tab);
             activeButton.classList.add('active-tab');
 
-            // Predefined questions and answers
-            const qaData = {
-                "what is 1+1?": "2",
-                "who is the prime minister of india?": "Narendra Modi",
-                "what is the capital of france?": "Paris",
-                "how many days are there in a week?": "7",
-                "what is the square root of 16?": "4"
-            };
 
-            // Function to process the question and display the answer
-            function getAnswer() {
-                const questionInput = document.getElementById('question');
-                const question = questionInput.value.toLowerCase().trim(); // Get user input
-                const answerBox = document.getElementById('answer');
+        }
 
-                // Check for a predefined answer or respond with a default message
-                if (qaData[question]) {
-                    answerBox.textContent = qaData[question];
-                } else {
-                    answerBox.textContent = "Sorry, I don't know the answer to that.";
-                }
+        // Predefined questions and answers
+        const qaData = {
+            "1+1": "2",
+            "what is 1+1?": "2",
+            "who is the prime minister of india?": "Narendra Modi",
+            "what is the capital of france?": "Paris",
+            "how many days are there in a week?": "7",
+            "what is the square root of 16?": "4"
+        };
 
-                // Display the answer box
-                answerBox.classList.remove('hidden');
+        // Function to process the question and display the answer
+        function getAnswer() {
+            const questionInput = document.getElementById('question');
+            const question = questionInput.value.toLowerCase().trim(); // Get user input
+            const answerBox = document.getElementById('answer');
+
+            // Check for a predefined answer or respond with a default message
+            if (qaData[question]) {
+                answerBox.textContent = qaData[question];
+            } else {
+                answerBox.textContent = "Sorry, I don't know the answer to that.";
             }
 
+            // Display the answer box
+            answerBox.classList.remove('hidden');
         }
     </script>
 
