@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Leaderboard Example</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Oswald|Overpass+Mono&amp;display=swap'>
+  <link rel="stylesheet" href="leaderboard.css">
+
+</head>
+
+<body>
+  <!-- Quiz Banner -->
+  <div class="quiz-banner">
+    <div class="quiz-banner__content">
+      <img src="avatar/image copy 2.png" alt="Quiz Illustration" class="quiz-banner__image">
+      <h1 class="quiz-banner__title">Ready for the Quiz?</h1>
+      <p class="quiz-banner__subtitle">Challenge yourself and test your knowledge!</p>
+      <button class="quiz-banner__btn" onclick="startQuiz()">Start Quiz</button>
+    </div>
+  </div>
+  <div class="Leaderboard">
+    <p>LeaderBoard</p>
+  </div>
+
+
+  <!-- partial:index.partial.html -->
+  <div class="l-wrapper">
+
+    <div class="l-grid">
+      <div class="l-grid__item l-grid__item--sticky">
+        <div class="c-card u-bg--light-gradient u-text--dark">
+          <div class="c-card__body">
+            <div class="u-display--flex u-justify--space-between">
+              <div class="u-text--left">
+                <div class="u-text--small">My Rank</div>
+                <h2>8th Place</h2>
+              </div>
+              <div class="u-text--right">
+                <div class="u-text--small">My Score</div>
+                <h2>7</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="c-card">
+          <div class="c-card__body">
+            <div class="u-text--center" id="winner"></div>
+          </div>
+        </div>
+      </div>
+      <div class="l-grid__item">
+        <div class="c-card">
+          <div class="c-card__header">
+            <h3>Received Kudos</h3>
+            <select class="c-select">
+              <option selected="selected">Nov. 21 - nov. 28</option>
+              <option selected="selected">Nov. 13 - nov. 20</option>
+              <option selected="selected">Nov. 5 - nov. 12</option>
+
+            </select>
+          </div>
+          <div class="c-card__body">
+            <ul class="c-list" id="list">
+              <li class="c-list__item">
+                <div class="c-list__grid">
+                  <div class="u-text--left u-text--small u-text--medium">Rank</div>
+                  <div class="u-text--left u-text--small u-text--medium">Team Member</div>
+                  <div class="u-text--right u-text--small u-text--medium"># of Kudos</div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- partial -->
+  <script src="leaderboard.js"></script>
+
+</body>
+
+</html>
