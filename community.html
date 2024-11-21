@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudentSync</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest"></script>
+    <style>
+        /* Custom Styles */
+        body {
+            background: linear-gradient(to bottom, #f9fafb, #e5e7eb);
+        }
+
+        p {
+            font-family: 'sora';
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            background: linear-gradient(to right, #e06695, #e068aa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: #000000;
+
+        }
+
+        .group-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .gradient-bg {
+            background: linear-gradient(to right, #d0c0d3, #e49eda);
+            color: white;
+        }
+
+        /* Laptop Media Query */
+        @media (min-width: 1024px) {
+            .container {
+                max-width: 70%;
+            }
+
+            h1 {
+                font-size: 3.5rem;
+            }
+
+            h2 {
+                font-size: 2.2rem;
+            }
+
+            .group-card {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body class="font-sans">
+
+    <div class="container mx-auto p-4">
+        <!-- Header -->
+        <header class="mb-8 text-center">
+            <h1 class="font-bold">EduX</h1>
+            <p class="text-gray-600 text-lg">Collaborate, Learn, and Excel Together!</p>
+        </header>
+
+        <!-- Navigation Tabs -->
+        <nav class="flex mb-6 border-b" id="tabs">
+            <button class="flex items-center px-4 py-2 mr-2 active-tab" onclick="switchTab('groups')">
+                <i data-lucide="users" class="mr-2"></i>
+                <span>Study Groups</span>
+            </button>
+            <button class="flex items-center px-4 py-2 mr-2" onclick="switchTab('notes')">
+                <i data-lucide="book" class="mr-2"></i>
+                <span>Shared Notes</span>
+
+            </button>
+            <button class="flex items-center px-4 py-2" onclick="switchTab('forums')">
+                <i data-lucide="message-circle" class="mr-2"></i>
+                <span>Doubt Solving</span>
+            </button>
+            <button class="flex items-center px-4 py-2" onclick="switchTab('forums')">
+                <i data-lucide="message-circle" class="mr-2"></i>
+                <span>Networking Cafe</span>
+            </button>
+        </nav>
+
+        <!-- Search Section -->
+        <div class="search-section mb-8 flex">
+            <input type="text" placeholder="Search groups, notes, forums..."
+                class="flex-grow px-4 py-3 border rounded-l-md" />
+            <button class="gradient-bg px-4 py-3 rounded-r-md hover:opacity-90">
+                <i data-lucide="search"></i>
+            </button>
+        </div>
+
+        <!-- Groups Section -->
+        <div id="groups" class="tab-content">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="font-bold">Available Study Groups</h2>
+                <button class="flex items-center gradient-bg px-4 py-2 rounded hover:opacity-90">
+                    <i data-lucide="plus-circle" class="mr-2"></i> Create Group
+                </button>
+            </div>
+
+            <!-- Group Cards -->
+            <div class="group-card bg-white p-4 rounded-lg shadow-md mb-6">
+                <h3 class="font-bold text-xl mb-2">CS Algorithms Study Group</h3>
+                <p class="text-gray-600 mb-2">Weekly meetups to solve algorithmic challenges</p>
+                <div class="flex items-center">
+                    <i data-lucide="users" class="mr-2 text-blue-500"></i>
+                    <span>5 Members</span>
+                    <button class="ml-auto gradient-bg px-4 py-2 rounded hover:opacity-90">
+                        Join Group
+                    </button>
+                </div>
+            </div>
+
+            <div class="group-card bg-white p-4 rounded-lg shadow-md mb-6">
+                <h3 class="font-bold text-xl mb-2">Biochem Research Prep</h3>
+                <p class="text-gray-600 mb-2">Collaborative research and exam preparation</p>
+                <div class="flex items-center">
+                    <i data-lucide="users" class="mr-2 text-blue-500"></i>
+                    <span>8 Members</span>
+                    <button class="ml-auto gradient-bg px-4 py-2 rounded hover:opacity-90">
+                        Join Group
+                    </button>
+                </div>
+            </div>
+
+            <div class="group-card bg-white p-4 rounded-lg shadow-md mb-6">
+                <h3 class="font-bold text-xl mb-2">Electrical Circuits Study Group</h3>
+                <p class="text-gray-600 mb-2">Deep dive into electrical circuits with peers</p>
+                <div class="flex items-center">
+                    <i data-lucide="users" class="mr-2 text-blue-500"></i>
+                    <span>12 Members</span>
+                    <button class="ml-auto gradient-bg px-4 py-2 rounded hover:opacity-90">
+                        Join Group
+                    </button>
+                </div>
+            </div>
+
+            <div class="group-card bg-white p-4 rounded-lg shadow-md mb-6">
+                <h3 class="font-bold text-xl mb-2">Master's Thesis Prep</h3>
+                <p class="text-gray-600 mb-2">Collaborate on literature review and methodology</p>
+                <div class="flex items-center">
+                    <i data-lucide="users" class="mr-2 text-blue-500"></i>
+                    <span>4 Members</span>
+                    <button class="ml-auto gradient-bg px-4 py-2 rounded hover:opacity-90">
+                        Join Group
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const tabs = document.querySelectorAll("#tabs button");
+        const tabContents = document.querySelectorAll(".tab-content");
+
+        function switchTab(tabId) {
+            tabs.forEach(tab => tab.classList.remove("active-tab"));
+            tabContents.forEach(content => content.classList.add("hidden"));
+
+            document.querySelector(`#tabs button[onclick="switchTab('${tabId}')"]`).classList.add("active-tab");
+            document.getElementById(tabId).classList.remove("hidden");
+        }
+
+        lucide.createIcons(); // Initialize Lucide icons
+    </script>
+
+</body>
+
+</html>
