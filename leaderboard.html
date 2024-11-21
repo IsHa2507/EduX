@@ -307,7 +307,7 @@
       <img src="avatar/image copy 2.png" alt="Quiz Illustration" class="quiz-banner__image">
       <h1 class="quiz-banner__title">Ready for the Quiz?</h1>
       <p class="quiz-banner__subtitle">Challenge yourself and test your knowledge!</p>
-      <button class="quiz-banner__btn" onclick="startQuiz()">Start Quiz</button>
+      <button class="quiz-banner__btn" onclick="startQuiz()" href="quiz.html">Start Quiz</button>
     </div>
   </div>
   <div class="Leaderboard">
@@ -367,6 +367,11 @@
     </div>
   </div>
   <!-- partial -->
+  <script>
+    function startQuiz() {
+      window.location.href = "quiz.html";  // Redirects to quiz.html when button is clicked
+    }
+  </script>
   <script src="leaderboard.js"></script>
   <script src="js/jquery-1.11.0.min.js"></script>
   <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
