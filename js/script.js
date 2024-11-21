@@ -122,3 +122,10 @@
     new DateTimePickerComponent.DatePicker('select-departure-date');
   });
 })(jQuery);
+
+
+
+document.querySelector('.chatbot-toggle').addEventListener('click', () => {
+  const container = document.querySelector('.chatbot-container');
+  container.classList.toggle('active');
+});
