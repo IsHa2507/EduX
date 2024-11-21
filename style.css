@@ -51,7 +51,17 @@ body {
   color: var(--dark-color);
   margin: 0;
 }
-
+.chatbot-iframe {
+  position: fixed; /* Fixes the position */
+  bottom: 20px; /* Distance from the bottom */
+  right: 20px; /* Distance from the right */
+  border: none;
+  width: 300px; /* Width of the iframe */
+  height: 400px; /* Height of the iframe */
+  border-radius: 8px; /* Optional: rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: shadow effect */
+  z-index: 1000; /* Ensure it appears above other content */
+}
 p {
   color: var(--dark-color);
 }
