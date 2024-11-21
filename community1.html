@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduX Community Chat</title>
+    <link rel="stylesheet" href="chat.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.120.0/dist/lucide.min.js"></script>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">EduX</div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#">Study Groups</a></li>
+                    <li><a href="#">Shared Notes</a></li>
+                    <li><a href="#">Doubt Solving</a></li>
+                    <li><a href="#">Networking Cafe</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <div class="content">
+            <!-- Chat Section -->
+            <section class="chat-section">
+                <div class="chat-header">
+                    <h2>CS Algorithms Study Group</h2>
+                    <p>Weekly meetups to solve algorithmic challenges</p>
+                </div>
+                <div class="chat-messages" id="chat-messages">
+                    <!-- Messages -->
+                    <div class="message">
+                        <div class="message-user">Kashish</div>
+                        <div class="message-text">Has anyone started working on the binary search assignment?</div>
+                        <div class="message-time">10:30 AM</div>
+                    </div>
+                    <div class="message">
+                        <div class="message-user">karan</div>
+                        <div class="message-text">Yes! I found some great resources to share</div>
+                        <div class="message-time">10:32 AM</div>
+                    </div>
+                    <div class="message message-self">
+                        <div class="message-user">You</div>
+                        <div class="message-text">Could you share them here?</div>
+                        <div class="message-time">10:35 AM</div>
+                    </div>
+                    <form class="chat-input" id="chat-form">
+                        <input type="text" placeholder="Type your message..." id="message-input">
+                        <button type="submit">
+                            <i data-lucide="send"></i>
+                        </button>
+                    </form>
+            </section>
+
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <div class="sidebar-section">
+                    <h3><i data-lucide="users"></i> Members (5)</h3>
+                    <ul>
+                        <li><span class="status online"></span> Kashish</li>
+                        <li><span class="status online"></span> SARA</li>
+                        <li><span class="status online"></span> Karan</li>
+                        <li><span class="status offline"></span> Dev</li>
+                        <li><span class="status offline"></span> sneha</li>
+                    </ul>
+                </div>
+                <div class="sidebar-section">
+                    <h3><i data-lucide="file-text"></i> Shared Resources</h3>
+                    <ul>
+                        <li><a href="#">Binary Search Practice Problems</a></li>
+                        <li><a href="#">Algorithm Complexity Guide</a></li>
+                        <li><a href="#">Weekly Challenge Solutions</a></li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+</body>
+<script> // Initialize Lucide Icons
+    lucide.createIcons();
+
+    // Chat Form Handler
+    const chatForm = document.getElementById('chat-form');
+    const chatMessages = document.getElementById('chat-messages');
+    const messageInput = document.getElementById('message-input');
+
+    chatForm.addEventListener('submit', (e) => {
+        e.preventDefault(); // Prevent form from refreshing the page
+
+        const message = messageInput.value.trim(); // Get and trim the input value
+        if (message) {
+            // Create a new message element
+            const messageElement = document.createElement('div');
+            messageElement.classList.add('message', 'message-self');
+            messageElement.innerHTML = `
+          <div class="message-user">You</div>
+          <div class="message-text">${message}</div>
+          <div class="message-time">${new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</div>
+        `;
+
+            // Append the message to the chat messages container
+            chatMessages.appendChild(messageElement);
+
+            // Scroll to the bottom of the chat messages
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+
+            // Clear the input field
+            messageInput.value = '';
+        }
+    });
+</script>
+
+</html>
