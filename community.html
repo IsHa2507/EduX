@@ -235,12 +235,35 @@
         <!-- Doubt Solving Section -->
         <div id="forums" class="tab-content hidden">
             <div class="flex justify-between items-center mb-6">
-                <h2 class="font-bold">Doubt Solving</h2>
+                <h2 class="font-bold text-2xl">Doubt Solving</h2>
                 <button class="flex items-center gradient-bg px-4 py-2 rounded hover:opacity-90">
                     <i data-lucide="edit-3" class="mr-2"></i> Ask Question
                 </button>
             </div>
+            <div class="container mx-auto p-6 bg-white shadow-md rounded-lg">
+                <h2 class="text-xl font-semibold mb-4">Basic Q&A Application</h2>
+                <!-- Input Section -->
+                <div class="question-box mb-4">
+                    <label for="question" class="block text-gray-700 font-medium mb-2">Ask your question:</label>
+                    <input type="text" id="question" placeholder="Type your question here..."
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-indigo-200">
+                </div>
+                <!-- Submit Button -->
+                <button onclick="getAnswer()"
+                    class="gradient-bg text-white px-6 py-2 rounded-lg hover:opacity-90 transition ease-in-out">
+                    Submit
+                </button>
+                <!-- Response Box -->
+                <div id="answer"
+                    class="response mt-4 hidden p-4 rounded-lg bg-green-100 text-green-700 border border-green-300">
+                </div>
+                <!-- Comment Section -->
+                <div class="add-comment mt-6 text-sm text-gray-600">
+
+                </div>
+            </div>
         </div>
+
 
         <!-- Networking Cafe Section -->
         <div id="networking" class="tab-content hidden">
@@ -285,6 +308,33 @@
             document.getElementById(tab).classList.remove('hidden');
             const activeButton = [...buttons].find((btn) => btn.innerText.toLowerCase() === tab);
             activeButton.classList.add('active-tab');
+
+            // Predefined questions and answers
+            const qaData = {
+                "what is 1+1?": "2",
+                "who is the prime minister of india?": "Narendra Modi",
+                "what is the capital of france?": "Paris",
+                "how many days are there in a week?": "7",
+                "what is the square root of 16?": "4"
+            };
+
+            // Function to process the question and display the answer
+            function getAnswer() {
+                const questionInput = document.getElementById('question');
+                const question = questionInput.value.toLowerCase().trim(); // Get user input
+                const answerBox = document.getElementById('answer');
+
+                // Check for a predefined answer or respond with a default message
+                if (qaData[question]) {
+                    answerBox.textContent = qaData[question];
+                } else {
+                    answerBox.textContent = "Sorry, I don't know the answer to that.";
+                }
+
+                // Display the answer box
+                answerBox.classList.remove('hidden');
+            }
+
         }
     </script>
 
