@@ -34,6 +34,6 @@ EduX was developed as part of a hackathon project, where our team worked on buil
 
 
 ## Contributors
-- [Isha Verma](https://github.com/username)
+- [Isha Verma](https://github.com/IsHa2507)
 - [Divya Chaudhary](https://github.com/divyaaachaudhary) 
 
